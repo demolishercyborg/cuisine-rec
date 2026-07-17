@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: democyborg/cuisine-engine-backend:latest
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/docs')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    image: democyborg/cuisine-engine-frontend:latest
+    build:
+      context: ./web
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
