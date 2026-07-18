@@ -13,7 +13,7 @@ Tell it your mood (savory, spicy, fresh, etc). It combines your location, curren
 4. The frontend shows ranked restaurant results with distance, hours, and why each one fits.
 5. You can upvote/downvote picks. Feedback is stored locally and nudges future rankings.
 
-
+<br>
 ## Tech stack
 
 **Backend**: Python, [FastAPI](https://fastapi.tiangolo.com/), [Uvicorn](https://www.uvicorn.org/), [httpx](https://www.python-httpx.org/), SQLite for local feedback storage, and the [Anthropic Python SDK](https://github.com/anthropics/anthropic-sdk-python). Talks to the **Google Places API** (New) for restaurant data.
@@ -209,6 +209,7 @@ Vite's dev server runs on `http://localhost:5173` and is pre configured to proxy
 Either way, `backend/.env` is what supplies your API keys. Same file, same setup as above.
 
 <br>
+
 ## Security notes
 
 Never commit `backend/.env`. It's git ignored by default; keep it that way. Only `backend/.env.example` (placeholder values) should ever be committed.
@@ -220,6 +221,7 @@ The backend port is not published to the host. Only the frontend's port (`8080`)
 If a key is ever accidentally exposed, revoke and regenerate it immediately from the same consoles linked above.
 
 <br>
+
 ## Troubleshooting
 
 **`docker compose up` fails immediately citing `backend/.env`**: you skipped the [API keys setup](#get-your-api-keys). Copy `.env.example` to `.env` and fill it in first.
