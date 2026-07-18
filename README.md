@@ -1,7 +1,6 @@
 # Cuisine Recommendation Engine
 
 A location aware food recommendation app.
-<br></br>
 
 ---
 
