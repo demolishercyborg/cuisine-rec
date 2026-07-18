@@ -4,7 +4,7 @@ A location aware food recommendation app.
 
 Tell it your mood (savory, spicy, fresh, etc). It combines your location, current weather, and nearby restaurant data to suggest cuisines and specific places worth eating at right now, using a Claude LLM to reason through the data.
 
-
+</br>
 ## What it does
 
 1. You pick or enter a craving/preset and share your location.
