@@ -24,7 +24,6 @@ Tell it your mood (savory, spicy, fresh, etc). It combines your location, curren
 
 **Infrastructure**: Two Docker images (backend, frontend) orchestrated with **Docker Compose**, published on Docker Hub as [`democyborg/cuisine-engine-backend`](https://hub.docker.com/r/democyborg/cuisine-engine-backend) and [`democyborg/cuisine-engine-frontend`](https://hub.docker.com/r/democyborg/cuisine-engine-frontend).
 
-nginx reverse proxies API requests from the frontend container to the backend container. The browser never talks to the backend directly, and no backend port is exposed to your host machine.
 
 ```
 ┌─────────────┐         ┌───────────────────────┐         ┌──────────────┐
@@ -68,7 +67,7 @@ You need two keys. Both have free tiers for personal/small scale use.
 3. Go to **APIs & Services → Credentials → Create Credentials → API Key**.
 4. Copy the generated key.
 5. Restrict the key (recommended): edit it, restrict to "Places API (New)" only, and consider an IP restriction if you know where it'll run.
-
+<br>
 **Set up `backend/.env`:**
 
 ```bash
