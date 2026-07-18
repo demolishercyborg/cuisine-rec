@@ -4,7 +4,7 @@ A location aware food recommendation app.
 
 Tell it your mood (savory, spicy, fresh, etc). It combines your location, current weather, and nearby restaurant data to suggest cuisines and specific places worth eating at right now, using a Claude LLM to reason through the data.
 
-</br>
+<br></br>
 ## What it does
 
 1. You pick or enter a craving/preset and share your location.
@@ -38,7 +38,7 @@ nginx reverse proxies API requests from the frontend container to the backend co
                                           Google Places API           Anthropic API
 ```
 
-<br><br></br></br>
+<br></br>
 ## Prerequisites
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop/). Works on macOS (Intel or Apple Silicon), Windows (via WSL2), and   Linux.
@@ -86,7 +86,7 @@ Replace the two placeholder values with your real keys. The rest already has san
 
 **This file never leaves your machine.** `backend/.env` is listed in `.gitignore` and `.dockerignore`. It can't be committed to git or baked into a Docker image; it's only read from disk at container startup. See [Security notes](#security-notes).
 
-<br><br></br></br>
+<br></br>
 ## Setup
 
 Two ways to run this. Both use the same `backend/.env` setup above.
@@ -121,7 +121,7 @@ Pulls the images straight from Docker Hub. No build required. First run download
 
 To update later: `docker compose pull && docker compose up -d`.
 
-<br></br></br></br>
+<br></br>
 ### Option B: Clone and build from source
 
 Use this if you want to change the code, not just run it.
@@ -145,7 +145,7 @@ Builds both images from source and starts the stack. First run takes a minute or
 
 **4.** Open **http://localhost:8080**.
 
-<br><br></br></br>
+<br></br>
 ### Stopping and background mode
 
 ```bash
@@ -153,7 +153,7 @@ docker compose down          # stop everything
 docker compose up -d         # run in the background
 docker compose up --build -d # background, rebuild from source
 ```
-<br><br></br></br>
+<br></br>
 ## Project structure
 
 ```
@@ -171,7 +171,7 @@ cuisine-engine/
     └── src/                   (React source)
 ```
 
-<br><br></br></br>
+<br></br>
 ## How the pieces talk to each other
 
 The **frontend** container serves the built React app on port 80 internally, published to your host as `localhost:8080`.
@@ -182,7 +182,7 @@ When the browser calls `/api/recommend`, nginx (inside the frontend container) p
 
 `docker-compose.yml` waits for the backend's healthcheck to pass before starting the frontend, avoiding a race where nginx comes up before the backend is ready.
 
-<br><br></br></br>
+<br></br>
 ## Local (non Docker) development
 
 For hot reloading while editing code instead of rebuilding images each time.
