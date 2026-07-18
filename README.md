@@ -41,7 +41,7 @@ nginx reverse proxies API requests from the frontend container to the backend co
 <br><br>
 ## Prerequisites
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/). Works on macOS (Intel or Apple Silicon), Windows (via WSL2), and Linux.
+[Docker Desktop](https://www.docker.com/products/docker-desktop/). Works on macOS (Intel or Apple Silicon), Windows (via WSL2), and   Linux.
 
 That's the only thing you need installed. Docker handles Python, Node, and every other dependency inside the containers.
 
@@ -101,8 +101,8 @@ Only two files needed: `docker-compose.yml` and a filled in `backend/.env`. No r
 ```bash
 mkdir cuisine-engine && cd cuisine-engine
 mkdir backend
-curl -o docker-compose.yml https://raw.githubusercontent.com/<your-username>/<repo-name>/main/docker-compose.yml
-curl -o backend/.env.example https://raw.githubusercontent.com/<your-username>/<repo-name>/main/backend/.env.example
+curl -o docker-compose.yml https://raw.githubusercontent.com/demolishercyborg/cuisine-rec/main/docker-compose.yml
+curl -o backend/.env.example https://raw.githubusercontent.com/demolishercyborg/cuisine-rec/main/backend/.env.example
 ```
 
 (Or copy those two files by hand from the GitHub repo.)
