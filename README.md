@@ -52,6 +52,7 @@ That's the only thing you need installed. Docker handles Python, Node, and every
 ## Get your API keys
 
 You need two keys. Both have free tiers for personal/small scale use.
+<br>
 
 **Anthropic API key** (powers the cuisine reasoning):
 
@@ -94,6 +95,7 @@ Replace the two placeholder values with your real keys. The rest already has san
 ## Setup
 
 Two ways to run this. Both use the same `backend/.env` setup above.
+<br>
 
 ### Option A: Run the published images (recommended)
 
