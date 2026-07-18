@@ -4,6 +4,7 @@ A location aware food recommendation app.
 
 Tell it your mood (savory, spicy, fresh, etc). It combines your location, current weather, and nearby restaurant data to suggest cuisines and specific places worth eating at right now, using a Claude LLM to reason through the data.
 
+
 ## What it does
 
 1. You pick or enter a craving/preset and share your location.
@@ -11,6 +12,7 @@ Tell it your mood (savory, spicy, fresh, etc). It combines your location, curren
 3. Claude reasons over your preset, the weather, and what's actually open nearby to plan a shortlist of cuisines and write a short "vibe" summary for top picks.
 4. The frontend shows ranked restaurant results with distance, hours, and why each one fits.
 5. You can upvote/downvote picks. Feedback is stored locally and nudges future rankings.
+
 
 ## Tech stack
 
@@ -36,11 +38,13 @@ nginx reverse proxies API requests from the frontend container to the backend co
                                           Google Places API           Anthropic API
 ```
 
+
 ## Prerequisites
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop/). Works on macOS (Intel or Apple Silicon), Windows (via WSL2), and Linux.
 
 That's the only thing you need installed. Docker handles Python, Node, and every other dependency inside the containers.
+
 
 ## Get your API keys
 
@@ -81,6 +85,8 @@ CORS_ORIGINS=http://localhost:5173
 Replace the two placeholder values with your real keys. The rest already has sane defaults.
 
 **This file never leaves your machine.** `backend/.env` is listed in `.gitignore` and `.dockerignore`. It can't be committed to git or baked into a Docker image; it's only read from disk at container startup. See [Security notes](#security-notes).
+
+
 
 ## Setup
 
@@ -138,6 +144,7 @@ Builds both images from source and starts the stack. First run takes a minute or
 
 **4.** Open **http://localhost:8080**.
 
+
 ### Stopping and background mode
 
 ```bash
@@ -145,6 +152,7 @@ docker compose down          # stop everything
 docker compose up -d         # run in the background
 docker compose up --build -d # background, rebuild from source
 ```
+
 
 ## Project structure
 
@@ -163,6 +171,7 @@ cuisine-engine/
     └── src/                   (React source)
 ```
 
+
 ## How the pieces talk to each other
 
 The **frontend** container serves the built React app on port 80 internally, published to your host as `localhost:8080`.
@@ -172,6 +181,7 @@ The **backend** container runs FastAPI on port 8000, but that port is not publis
 When the browser calls `/api/recommend`, nginx (inside the frontend container) proxies that request to `http://backend:8000/recommend`. The browser never sees the backend's address or needs any API keys itself; only the backend ever touches `GOOGLE_PLACES_KEY` and `ANTHROPIC_API_KEY`.
 
 `docker-compose.yml` waits for the backend's healthcheck to pass before starting the frontend, avoiding a race where nginx comes up before the backend is ready.
+
 
 ## Local (non Docker) development
 
@@ -198,6 +208,7 @@ Vite's dev server runs on `http://localhost:5173` and is pre configured to proxy
 
 Either way, `backend/.env` is what supplies your API keys. Same file, same setup as above.
 
+
 ## Security notes
 
 Never commit `backend/.env`. It's git ignored by default; keep it that way. Only `backend/.env.example` (placeholder values) should ever be committed.
@@ -207,6 +218,7 @@ Keys are injected at container runtime, not build time. `docker-compose.yml` use
 The backend port is not published to the host. Only the frontend's port (`8080`) is reachable from outside Docker's internal network.
 
 If a key is ever accidentally exposed, revoke and regenerate it immediately from the same consoles linked above.
+
 
 ## Troubleshooting
 
