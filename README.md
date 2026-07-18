@@ -11,6 +11,7 @@ A location aware food recommendation app.
 3. Claude reasons over your preset, the weather, and what's actually open nearby to plan a shortlist of cuisines and write a short "vibe" summary for top picks.
 4. The frontend shows ranked restaurant results with distance, hours, and why each one fits.
 5. You can upvote/downvote picks. Feedback is stored locally and nudges future rankings.
+<br></br>
 
 ---
 
@@ -36,6 +37,7 @@ A location aware food recommendation app.
                                                     ▼                         ▼
                                           Google Places API           Anthropic API
 ```
+<br></br>
 
 ---
 
@@ -87,6 +89,7 @@ CORS_ORIGINS=http://localhost:5173
 Replace the two placeholder values with your real keys. The rest already has sane defaults.
 
 **This file never leaves your machine.** `backend/.env` is listed in `.gitignore` and `.dockerignore`. It can't be committed to git or baked into a Docker image; it's only read from disk at container startup. See [Security notes](#security-notes).
+<br></br>
 
 ---
 
@@ -154,6 +157,7 @@ docker compose down          # stop everything
 docker compose up -d         # run in the background
 docker compose up --build -d # background, rebuild from source
 ```
+<br></br>
 
 ---
 
@@ -173,6 +177,7 @@ cuisine-engine/
     ├── package.json
     └── src/                 (React source)
 ```
+<br></br>
 
 ---
 
@@ -185,6 +190,7 @@ The **backend** container runs FastAPI on port 8000, but that port is not publis
 When the browser calls `/api/recommend`, nginx (inside the frontend container) proxies that request to `http://backend:8000/recommend`. The browser never sees the backend's address or needs any API keys itself; only the backend ever touches `GOOGLE_PLACES_KEY` and `ANTHROPIC_API_KEY`.
 
 `docker-compose.yml` waits for the backend's healthcheck to pass before starting the frontend, avoiding a race where nginx comes up before the backend is ready.
+<br></br>
 
 ---
 
@@ -225,6 +231,7 @@ Keys are injected at container runtime, not build time. `docker-compose.yml` use
 The backend port is not published to the host. Only the frontend's port (`8080`) is reachable from outside Docker's internal network.
 
 If a key is ever accidentally exposed, revoke and regenerate it immediately from the same consoles linked above.
+<br></br>
 
 ---
 
