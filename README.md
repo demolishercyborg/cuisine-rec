@@ -45,7 +45,7 @@ nginx reverse proxies API requests from the frontend container to the backend co
 
 That's the only thing you need installed. Docker handles Python, Node, and every other dependency inside the containers.
 
-<br><br>
+<br>
 ## Get your API keys
 
 You need two keys. Both have free tiers for personal/small scale use.
@@ -86,7 +86,7 @@ Replace the two placeholder values with your real keys. The rest already has san
 
 **This file never leaves your machine.** `backend/.env` is listed in `.gitignore` and `.dockerignore`. It can't be committed to git or baked into a Docker image; it's only read from disk at container startup. See [Security notes](#security-notes).
 
-<br><br><br>
+<br><br>
 ## Setup
 
 Two ways to run this. Both use the same `backend/.env` setup above.
@@ -145,7 +145,7 @@ Builds both images from source and starts the stack. First run takes a minute or
 
 **4.** Open **http://localhost:8080**.
 
-<br><br><br>
+<br><br>
 ### Stopping and background mode
 
 ```bash
@@ -153,7 +153,7 @@ docker compose down          # stop everything
 docker compose up -d         # run in the background
 docker compose up --build -d # background, rebuild from source
 ```
-<br><br><br>
+<br><br>
 ## Project structure
 
 ```
@@ -171,7 +171,7 @@ cuisine-engine/
     └── src/                   (React source)
 ```
 
-<br><br><br>
+<br><br>
 ## How the pieces talk to each other
 
 The **frontend** container serves the built React app on port 80 internally, published to your host as `localhost:8080`.
@@ -182,7 +182,7 @@ When the browser calls `/api/recommend`, nginx (inside the frontend container) p
 
 `docker-compose.yml` waits for the backend's healthcheck to pass before starting the frontend, avoiding a race where nginx comes up before the backend is ready.
 
-<br><br><br>
+<br><br>
 ## Local (non Docker) development
 
 For hot reloading while editing code instead of rebuilding images each time.
@@ -208,7 +208,7 @@ Vite's dev server runs on `http://localhost:5173` and is pre configured to proxy
 
 Either way, `backend/.env` is what supplies your API keys. Same file, same setup as above.
 
-<br><br>
+<br>
 ## Security notes
 
 Never commit `backend/.env`. It's git ignored by default; keep it that way. Only `backend/.env.example` (placeholder values) should ever be committed.
@@ -219,7 +219,7 @@ The backend port is not published to the host. Only the frontend's port (`8080`)
 
 If a key is ever accidentally exposed, revoke and regenerate it immediately from the same consoles linked above.
 
-<br><br>
+<br>
 ## Troubleshooting
 
 **`docker compose up` fails immediately citing `backend/.env`**: you skipped the [API keys setup](#get-your-api-keys). Copy `.env.example` to `.env` and fill it in first.
