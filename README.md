@@ -121,7 +121,6 @@ Pulls the images straight from Docker Hub. No build required. First run download
 
 To update later: `docker compose pull && docker compose up -d`.
 
-<br></br>
 ### Option B: Clone and build from source
 
 Use this if you want to change the code, not just run it.
