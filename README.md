@@ -1,6 +1,7 @@
 # Cuisine Recommendation Engine
 
 A location aware food recommendation app.
+<br></br>
 
 ---
 
@@ -46,6 +47,7 @@ A location aware food recommendation app.
 [Docker Desktop](https://www.docker.com/products/docker-desktop/). Works on macOS (Intel or Apple Silicon), Windows (via WSL2), and Linux.
 
 That's the only thing you need installed. Docker handles Python, Node, and every other dependency inside the containers.
+<br></br>
 
 ---
 
