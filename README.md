@@ -148,7 +148,7 @@ docker compose up --build
 Builds both images from source and starts the stack. First run takes a minute or two; later runs are faster from cache.
 
 **4.** Open **http://localhost:8080**.
-
+<br>
 ### Stopping and background mode
 
 ```bash
@@ -214,7 +214,7 @@ npm run dev
 Vite's dev server runs on `http://localhost:5173` and is pre configured to proxy `/api/*` requests to `http://localhost:8000`.
 
 Either way, `backend/.env` is what supplies your API keys. Same file, same setup as above.
-
+<br>
 ---
 
 ## Security notes
