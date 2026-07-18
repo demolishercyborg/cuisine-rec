@@ -112,7 +112,7 @@ curl -o backend/.env.example https://raw.githubusercontent.com/demolishercyborg/
 
 (Or copy those two files by hand from the GitHub repo.)
 
-**2.** Follow [Get your API keys](#get-your-api-keys) above.
+**2. Follow [Get your API keys](#get-your-api-keys) above.**
 
 **3. Run it**
 
@@ -122,7 +122,7 @@ docker compose up -d
 
 Pulls the images straight from Docker Hub. No build required. First run downloads about 360MB combined; after that it starts in seconds.
 
-**4.** Open **http://localhost:8080**.
+**4. Open **http://localhost:8080**.**
 
 To update later: `docker compose pull && docker compose up -d`.
 <br><br>
@@ -137,7 +137,7 @@ git clone https://github.com/demolishercyborg/cuisine-rec.git
 cd cuisine-engine
 ```
 
-**2.** Follow [Get your API keys](#get-your-api-keys) above.
+**2. Follow [Get your API keys](#get-your-api-keys) above.**
 
 **3. Build and run**
 
@@ -147,7 +147,7 @@ docker compose up --build
 
 Builds both images from source and starts the stack. First run takes a minute or two; later runs are faster from cache.
 
-**4.** Open **http://localhost:8080**.
+**4. Open **http://localhost:8080**.**
 <br></br>
 ### Stopping and background mode
 
