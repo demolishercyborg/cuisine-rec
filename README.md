@@ -60,7 +60,7 @@ You need two keys. Both have free tiers for personal/small scale use.
 2. Navigate to **Settings → API Keys**.
 3. Click **Create Key**, name it, and copy the value (starts with `sk-ant-...`). You won't be able to see it again after leaving the page.
 4. Add billing details if prompted.
-
+<br>
 **Google Places API key** (powers restaurant search):
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a project (or select an existing one).
